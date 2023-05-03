@@ -14,8 +14,10 @@ namespace Contracts.Services.Features
         public async Task<TradeResponse> Handle(TradeRequest request, CancellationToken cancellationToken)
         {
             TradeUseCase tradeUseCase = new TradeUseCase(_apiService,_contractService);
-            TradeResponse result=await tradeUseCase.GetTradeList(request);
-            return result;
+            TradeResponse result=await tradeUseCase.GetTradeList(request);// Bu sınıftan UseCase sınıfına ve
+            return result;                                                // oradan da verileri cekecek olan Apiservice'e gidiyor
+                                                                          // Oradan da Contract sınıfına giden veriler tablo degerleri olarak 
+                                                                          //buraya donuyor
         }
     }
 }

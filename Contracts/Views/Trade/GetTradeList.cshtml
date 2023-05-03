@@ -1,0 +1,63 @@
+﻿@model Contracts.Services.Features.TradeResponse
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .table{
+            font-family: 'Inter', sans-serif;
+            border-spacing: 0px;
+        }
+        .table thead tr{
+            background-color: #3176F1;
+            color: white;
+        }
+        .table tbody tr:nth-child(odd) {
+            background: #D6E1FB;
+        }
+        .table tbody tr:nth-child(odd) td {
+            border-bottom: 1px solid #ADC7F9;
+        }
+        .table tbody tr:nth-child(even) td {
+            border-right: 1px solid #E6E6E6;
+        }
+        .table thead tr th,
+        .table tbody tr td {
+            text-align: end;
+            font-size: 14px;
+            font-weight: 400;
+            margin: 0px;
+            padding: 4px 8px 4px 20px;
+        }
+        .table thead tr th{
+            border-right: 1px solid #ADC7F9;
+            font-weight: 600;
+        } 
+    </style>
+</head>
+
+    
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Tarih</th>
+            <th scope="col">Toplam İşlem Miktarı (MWh)</th>
+            <th scope="col">Toplam İşlem Tutarı (TL)</th>
+            <th scope="col">Ağırlık Ortalam Fiyat (TL/MWh)</th>
+        </tr>
+    </thead>
+    <tbody >
+        @foreach (var item in Model.Table)
+        {
+            <tr>
+                <td>@item.Time</td>
+                <td>@item.TotalOperationPrice</td>
+                <td>@item.TotalOperationCount</td>
+                <td>@item.AveragePrice</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

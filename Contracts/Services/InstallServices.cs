@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using System.Configuration;
 
 namespace Contracts.Services
 {
@@ -9,6 +10,9 @@ namespace Contracts.Services
         {
             serviceCollection.AddScoped<ApiService>();
             serviceCollection.AddScoped<ContractService.ContractService>();
+            
+            
+
             return serviceCollection;
         }
     }

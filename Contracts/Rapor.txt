@@ -1,0 +1,16 @@
+﻿
+Proje küçük olduğu ve bir View istediği için MVC mimarisi kullandım.
+Mediator pattern ile requestleri ve response'ları düzenledim. 
+Response nesnesi olarak son tabloda görünecek kolonların listesini tutan bir model dönmekte.
+Mediatr'ın handler nesnesinde request UseCase sınıfına gönderilmekte ve oradan da 
+Api Service'e giderek URL'den istenen verileri çekiyor.
+
+Gelen veriler Trade Model listesi olarak UseCase'e geri dönüyor ve ContractService'a gönderiliyor.
+Orada Contractlarına göre ayrışan bir Dictionary olarak geri dönüyor.
+
+UseCase'den ContractService'ın farklı bir metoduna bu dictionary'nin her value'su tek tek gönderiliyor ve
+Extensions helper class'ındanki static metotları kullanılarak tablonun istenilen değerleri olarak geri dönüyor.
+
+Bu değerler controller'a dönüyor ve view'da tablo olarak gösteriliyor.
+ 
+

@@ -3,11 +3,12 @@ using Contracts.Services.ContractService;
 using Contracts.Services.Features;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection;
 
 namespace Contracts.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[Controller]")]
     public class TradeController : Controller
     {
         private readonly IMediator _mediator;
@@ -15,16 +16,17 @@ namespace Contracts.Controllers
         public TradeController(IMediator mediator)
         {
             _mediator = mediator;
-           
+
         }
+    
         
         [HttpGet] 
-        public async Task<IActionResult> GetTradelist()
-        {
+        public async Task<IActionResult> GetTradelistAsync()
+        {   
             TradeResponse response = await _mediator.Send(new TradeRequest { StartDate=DateTime.Now,EndDate=DateTime.Now});
 
             
-            return Ok(response);
+            return View(response);
         }
     }
 }
